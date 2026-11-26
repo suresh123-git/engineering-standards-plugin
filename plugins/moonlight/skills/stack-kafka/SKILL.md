@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-kafka"
 description: "Use in projects using Apache Kafka (kafkajs, confluent clients, Spring Kafka, MSK) to review producers, consumers, partitioning and ordering, delivery semantics, schemas, retries/DLQ and operations."
 ---

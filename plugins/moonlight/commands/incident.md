@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: "Analyse a production incident from logs, metrics and code to establish timeline, root cause, contributing factors and preventive actions."
 argument-hint: "<incident description | logs | alert | time window>"
 allowed-tools: "Read, Grep, Glob, Bash(git diff:*), Bash(git log:*), Bash(git status:*), Bash(git show:*), Bash(git blame:*)"
@@ -65,3 +66,7 @@ Incident report per [template](${CLAUDE_PLUGIN_ROOT}/templates/incident-report.m
 - Run [project context discovery](${CLAUDE_PLUGIN_ROOT}/standards/global/project-discovery.md) first and load the matching `stack-*` skills.
 - Follow the [safety rules](${CLAUDE_PLUGIN_ROOT}/standards/global/safety-rules.md); audit-style output uses the [findings format](${CLAUDE_PLUGIN_ROOT}/standards/global/review-findings.md).
 - Project conventions override generic advice unless they cause a concrete problem; never force a framework or architecture the project does not use.
+
+## Loading stack skills (plugin)
+
+Skills in this plugin are user-invoked only, so read the matching stack skills as files: `${CLAUDE_PLUGIN_ROOT}/skills/stack-<name>/SKILL.md` (e.g. `stack-nestjs`, `stack-postgresql`), and core skills at `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`. Read only those for technologies the project actually uses.

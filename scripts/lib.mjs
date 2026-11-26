@@ -29,7 +29,8 @@ export const RULE_SCOPES = ['always', 'glob', 'model'];
 export const SEMVER = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/;
 export const KEBAB = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
 
-export const read = (p) => fs.readFileSync(p, 'utf8');
+// Normalise line endings so Windows checkouts (core.autocrlf) build and validate identically.
+export const read = (p) => fs.readFileSync(p, 'utf8').replace(/\r\n/g, '\n');
 export const rel = (p) => path.relative(ROOT, p).split(path.sep).join('/');
 export const sha256 = (s) => crypto.createHash('sha256').update(s).digest('hex');
 

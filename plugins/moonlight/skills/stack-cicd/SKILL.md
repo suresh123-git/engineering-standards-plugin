@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-cicd"
 description: "Use when a project has CI/CD pipeline definitions (GitHub Actions, GitLab CI, Jenkins, CircleCI, Azure Pipelines, CodeBuild) to review correctness, speed, pipeline security, quality gates and deployment safety."
 ---

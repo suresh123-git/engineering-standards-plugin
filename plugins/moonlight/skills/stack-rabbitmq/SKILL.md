@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-rabbitmq"
 description: "Use in projects using RabbitMQ (amqplib, amqp-connection-manager, Spring AMQP, NestJS RMQ) to review exchanges/queues topology, acknowledgements, prefetch, retries/DLX, durability and connection resilience."
 ---

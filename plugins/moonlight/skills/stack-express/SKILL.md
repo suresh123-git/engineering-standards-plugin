@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-express"
 description: "Use in Express.js projects (express dependency, app.use/router patterns) for middleware order, async error handling, validation, security hardening, structure and Supertest testing."
 ---

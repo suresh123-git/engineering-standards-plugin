@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "domain-driven-design"
 description: "Use when modelling complex business domains — ubiquitous language, bounded contexts, aggregates, domain events and context integration — and when judging whether DDD is warranted at all."
 ---

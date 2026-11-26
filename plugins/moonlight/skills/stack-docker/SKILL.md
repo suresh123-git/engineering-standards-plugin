@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-docker"
 description: "Use when a project has Dockerfiles or docker-compose files to apply image build, security, caching, runtime and local-development best practices."
 ---

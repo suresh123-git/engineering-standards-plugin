@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-microservices"
 description: "Use when a system has multiple independently deployed services — to review service boundaries, communication, data ownership, consistency, resilience and observability, or to judge whether splitting is warranted."
 ---

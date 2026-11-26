@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-mysql"
 description: "Use in projects using MySQL or MariaDB (mysql2, ORMs with mysql provider) to review schemas, InnoDB indexing, query plans, transactions/locking, online DDL and connection handling."
 ---

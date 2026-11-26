@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "clean-architecture"
 description: "Use when structuring or assessing application layers, dependency direction, ports/adapters and module boundaries — adapting to the project's existing architecture instead of imposing one."
 ---

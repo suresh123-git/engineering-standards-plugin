@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "engineering-rules"
 description: "Baseline engineering rules (safe changes, project awareness, secure defaults, clean code). Apply whenever writing, modifying, reviewing or designing code."
 ---

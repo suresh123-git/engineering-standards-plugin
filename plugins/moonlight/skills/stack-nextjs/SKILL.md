@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-nextjs"
 description: "Use in Next.js projects (next dependency, next.config.*, app/ or pages/) for routing model, server vs client components, data fetching and caching, route handlers, security, performance and testing."
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "solid-principles"
 description: "Use when designing or reviewing class/module structure to judge SRP, OCP, LSP, ISP and DIP pragmatically, recommending the smallest refactor that removes real design pain."
 ---

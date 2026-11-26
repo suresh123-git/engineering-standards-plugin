@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: "Generate a complete pull request title and description from the branch diff using the project's PR template."
 argument-hint: "[base branch | issue reference]"
 allowed-tools: "Read, Grep, Glob, Bash(git diff:*), Bash(git log:*), Bash(git status:*), Bash(git show:*), Bash(git blame:*)"
@@ -65,3 +66,7 @@ Markdown ready to paste: `Title:` line, then the description following the templ
 - Run [project context discovery](${CLAUDE_PLUGIN_ROOT}/standards/global/project-discovery.md) first and load the matching `stack-*` skills.
 - Follow the [safety rules](${CLAUDE_PLUGIN_ROOT}/standards/global/safety-rules.md); audit-style output uses the [findings format](${CLAUDE_PLUGIN_ROOT}/standards/global/review-findings.md).
 - Project conventions override generic advice unless they cause a concrete problem; never force a framework or architecture the project does not use.
+
+## Loading stack skills (plugin)
+
+Skills in this plugin are user-invoked only, so read the matching stack skills as files: `${CLAUDE_PLUGIN_ROOT}/skills/stack-<name>/SKILL.md` (e.g. `stack-nestjs`, `stack-postgresql`), and core skills at `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`. Read only those for technologies the project actually uses.

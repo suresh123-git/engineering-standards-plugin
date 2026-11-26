@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-react"
 description: "Use in React projects (react dependency, .jsx/.tsx) for review and implementation of components, hooks, effects, state, rendering performance, accessibility and Testing Library tests."
 ---

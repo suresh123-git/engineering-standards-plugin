@@ -28,6 +28,20 @@ export const meta = {
 const ROOT_VAR = '${CLAUDE_PLUGIN_ROOT}/';
 const toPluginLinks = (text) => text.split(`${INSTALL_DIR}/`).join(ROOT_VAR);
 
+// The plugin is opt-in: everything runs only when the user types /moonlight:<name>.
+// `disable-model-invocation: true` keeps Claude from auto-loading it and keeps the
+// 70+ descriptions out of every session's skill listing.
+const userInvokedOnly = (content) => content.replace(/^---\n/, '---\ndisable-model-invocation: true\n');
+
+// Because skills can no longer be auto-loaded, point commands/skills at the files directly.
+const STACK_SKILLS_NOTE = [
+  '',
+  '## Loading stack skills (plugin)',
+  '',
+  `Skills in this plugin are user-invoked only, so read the matching stack skills as files: \`${ROOT_VAR}skills/stack-<name>/SKILL.md\` (e.g. \`stack-nestjs\`, \`stack-postgresql\`), and core skills at \`${ROOT_VAR}skills/<name>/SKILL.md\`. Read only those for technologies the project actually uses.`,
+  '',
+].join('\n');
+
 export const REPO_URL = 'https://github.com/suresh123-git/engineering-standards-plugin';
 
 export function rulesSkill(rules) {
@@ -64,9 +78,11 @@ export function generate(ctx) {
   for (const f of generateClaudeCode(ctx)) {
     if (f.block) continue; // CLAUDE.md is not loaded from plugins
     const p = f.path.replace(/^\.claude\//, '');
-    files.push({ path: p, content: toPluginLinks(f.content) });
+    let content = userInvokedOnly(toPluginLinks(f.content));
+    if (/`stack-\*`|stack-\* skill/.test(content)) content = content.trimEnd() + '\n' + STACK_SKILLS_NOTE;
+    files.push({ path: p, content });
   }
-  files.push({ path: 'skills/engineering-rules/SKILL.md', content: toPluginLinks(rulesSkill(rules)) });
+  files.push({ path: 'skills/engineering-rules/SKILL.md', content: userInvokedOnly(toPluginLinks(rulesSkill(rules))) });
 
   for (const dir of ['standards', 'checklists', 'templates', 'rules']) {
     for (const f of walk(path.join(ROOT, dir), (p) => p.endsWith('.md'))) {

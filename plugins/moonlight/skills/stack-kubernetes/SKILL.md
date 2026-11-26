@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-kubernetes"
 description: "Use when a project has Kubernetes manifests, Helm charts or Kustomize overlays to review workload configuration, security context, resources, probes, networking, RBAC, rollout safety and GitOps practices."
 ---
