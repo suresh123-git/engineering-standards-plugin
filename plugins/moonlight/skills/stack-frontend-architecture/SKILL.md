@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-frontend-architecture"
 description: "Use in frontend codebases to evaluate and design component architecture, state management, data flow, folder structure, design-system use and frontend performance/accessibility budgets across React, Angular and Next.js."
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-sqs"
 description: "Use in projects using Amazon SQS (and SNS fan-out) to review queue configuration, visibility timeouts, redrive/DLQ, standard vs FIFO semantics, idempotent consumers, batching, IAM and monitoring."
 ---

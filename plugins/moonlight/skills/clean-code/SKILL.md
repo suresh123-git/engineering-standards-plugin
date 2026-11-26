@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "clean-code"
 description: "Use when writing, reviewing or refactoring code for readability and maintainability — naming, function size, duplication, abstraction and smells — while respecting existing project conventions."
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-nodejs"
 description: "Use in Node.js projects (package.json, .nvmrc, server-side JS/TS) for runtime-specific review, implementation and testing guidance — event loop, async, streams, process lifecycle and config."
 ---

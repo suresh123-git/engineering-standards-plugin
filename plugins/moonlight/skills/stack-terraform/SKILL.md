@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-terraform"
 description: "Use in projects with Terraform/OpenTofu (*.tf, .terraform.lock.hcl) to review module structure, state management, provider/version pinning, IAM and network security, safe changes, drift and plan review."
 ---

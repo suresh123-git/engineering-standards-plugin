@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "performance-engineering"
 description: "Use when diagnosing or preventing slow code, queries, APIs or UIs and when assessing scalability — measurement-first analysis of database, caching, concurrency, memory and rendering."
 ---

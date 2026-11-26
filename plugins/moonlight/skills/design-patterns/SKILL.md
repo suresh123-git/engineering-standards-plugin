@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "design-patterns"
 description: "Use when a recurring design problem (growing conditionals, vendor variance, cross-cutting behaviour, state, reliability) may call for a pattern — recommends one only with evidence, or none."
 ---

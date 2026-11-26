@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "code-review"
 description: "Use when reviewing code, diffs or pull requests — a structured, low-false-positive method producing severity-ranked findings with evidence, impact and fixes."
 ---
@@ -30,3 +31,7 @@ Reviewing any change or codebase area; also as the final self-review before pres
 ## Common mistakes
 
 Reviewing only the diff without context; nitpicking style; asking for unrelated refactors; vague comments ("this is confusing"); missing the absent code (unhandled error path, missing auth check, missing test); rubber-stamping large PRs.
+
+## Loading stack skills (plugin)
+
+Skills in this plugin are user-invoked only, so read the matching stack skills as files: `${CLAUDE_PLUGIN_ROOT}/skills/stack-<name>/SKILL.md` (e.g. `stack-nestjs`, `stack-postgresql`), and core skills at `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`. Read only those for technologies the project actually uses.

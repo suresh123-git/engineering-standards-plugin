@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-cloudformation"
 description: "Use in projects with AWS CloudFormation, SAM or CDK-synthesised templates to review parameters, resource policies, deletion/update behaviour, change sets, drift, nested stacks and security."
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "testing-strategy"
 description: "Use when planning, writing, reviewing or debugging tests — choosing test layers, isolation and mocking, deriving edge cases, and judging coverage by risk instead of percentage."
 ---

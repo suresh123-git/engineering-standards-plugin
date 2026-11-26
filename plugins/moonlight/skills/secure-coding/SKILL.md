@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "secure-coding"
 description: "Use whenever code handles input, authentication, authorization, data access, secrets, files, outbound requests or dependencies — applies OWASP-aligned secure coding and review practices."
 ---

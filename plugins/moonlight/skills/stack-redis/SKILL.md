@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-redis"
 description: "Use in projects using Redis (ioredis, redis, BullMQ, cache/session/rate-limit usage) to review key design, TTLs and eviction, caching correctness, data structures, atomicity, persistence, security and failure modes."
 ---

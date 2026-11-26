@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-angular"
 description: "Use in Angular projects (angular.json, @angular/*) to review and build components, services, RxJS, dependency injection, routing and lazy loading, state management, forms, change detection and accessibility."
 ---

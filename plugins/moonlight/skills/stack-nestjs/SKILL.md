@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-nestjs"
 description: "Use in NestJS projects (@nestjs/*, nest-cli.json) to review and build modules, providers, dependency injection, guards, interceptors, pipes, DTO validation, exception filters and tests the Nest way."
 ---

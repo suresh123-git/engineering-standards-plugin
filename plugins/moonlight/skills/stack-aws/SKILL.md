@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-aws"
 description: "Use in projects deploying to or calling AWS (SDK, CDK/SAM, Lambda, ECS/EKS, RDS, S3, IAM) to review architecture and code against Well-Architected security, reliability, performance, cost and operations practices."
 ---

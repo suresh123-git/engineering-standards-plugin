@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-typescript"
 description: "Use in TypeScript projects (tsconfig.json, .ts/.tsx) for type-safety review, strictness, typing patterns, module config and compiler-aware implementation and testing."
 ---

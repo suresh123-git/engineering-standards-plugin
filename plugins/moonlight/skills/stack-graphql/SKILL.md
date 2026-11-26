@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-graphql"
 description: "Use in GraphQL projects (graphql, Apollo, GraphQL Yoga, NestJS GraphQL, .graphql files) for schema design, resolver performance (N+1), authorization, query-cost protection and error handling."
 ---

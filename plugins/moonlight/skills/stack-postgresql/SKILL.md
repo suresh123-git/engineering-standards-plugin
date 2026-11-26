@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-postgresql"
 description: "Use in projects using PostgreSQL (pg, Prisma/TypeORM/Sequelize/Knex with postgres) to review schemas, indexes, query plans, transactions, locking, migrations and connection management."
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: "Review UI code and pages for WCAG 2.2 AA accessibility issues, mapped to success criteria with concrete fixes."
 argument-hint: "<component | page | directory | URL of a running app>"
 allowed-tools: "Read, Grep, Glob, Bash(git diff:*), Bash(git log:*), Bash(git status:*), Bash(git show:*), Bash(git blame:*)"
@@ -69,3 +70,7 @@ Shared findings format, with extra field **WCAG criterion** (e.g., `1.4.3`, `2.4
 - Run [project context discovery](${CLAUDE_PLUGIN_ROOT}/standards/global/project-discovery.md) first and load the matching `stack-*` skills.
 - Follow the [safety rules](${CLAUDE_PLUGIN_ROOT}/standards/global/safety-rules.md); audit-style output uses the [findings format](${CLAUDE_PLUGIN_ROOT}/standards/global/review-findings.md).
 - Project conventions override generic advice unless they cause a concrete problem; never force a framework or architecture the project does not use.
+
+## Loading stack skills (plugin)
+
+Skills in this plugin are user-invoked only, so read the matching stack skills as files: `${CLAUDE_PLUGIN_ROOT}/skills/stack-<name>/SKILL.md` (e.g. `stack-nestjs`, `stack-postgresql`), and core skills at `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`. Read only those for technologies the project actually uses.

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "stack-mongodb"
 description: "Use in projects using MongoDB or Mongoose to review and design schemas, indexes, aggregation pipelines, transactions, query performance, validation and injection safety."
 ---

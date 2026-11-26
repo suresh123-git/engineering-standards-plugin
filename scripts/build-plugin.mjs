@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { ROOT, walk, loadCommands, loadRules, loadSkills } from './lib.mjs';
+import { ROOT, read, walk, loadCommands, loadRules, loadSkills } from './lib.mjs';
 import { readVersion } from './build.mjs';
 import { generate, marketplace, meta } from '../adapters/claude-plugin/adapter.mjs';
 
@@ -24,7 +24,7 @@ export function checkPlugin() {
   for (const f of plan) {
     const full = path.join(ROOT, f.path);
     if (!fs.existsSync(full)) problems.push(`missing: ${f.path}`);
-    else if (fs.readFileSync(full, 'utf8') !== f.content) problems.push(`out of date: ${f.path}`);
+    else if (read(full) !== f.content) problems.push(`out of date: ${f.path}`);
   }
   for (const f of walk(path.join(ROOT, meta.outDir))) {
     const r = path.relative(ROOT, f).split(path.sep).join('/');
