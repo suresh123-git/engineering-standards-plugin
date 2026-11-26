@@ -148,7 +148,7 @@ export async function validate() {
   }
 
   // ---- Claude Code plugin + marketplace (committed output)
-  const pluginDir = path.join(ROOT, 'plugins/engineering-standards');
+  const pluginDir = path.join(ROOT, 'plugins/moonlight');
   for (const p of checkPlugin()) err(`plugin: ${p} (run "npm run build:plugin")`);
   try {
     const mk = JSON.parse(read(path.join(ROOT, '.claude-plugin/marketplace.json')));

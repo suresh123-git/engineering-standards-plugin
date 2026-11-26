@@ -1,5 +1,5 @@
 // Claude Code plugin adapter (also installable via claude.ai / Cowork plugin support).
-// Produces a self-contained plugin directory, committed at plugins/engineering-standards/ and
+// Produces a self-contained plugin directory, committed at plugins/moonlight/ and
 // listed by the repo-root marketplace (.claude-plugin/marketplace.json).
 //
 // Plugin rules (code.claude.com/docs/en/plugins/components):
@@ -17,8 +17,8 @@ import { generate as generateClaudeCode } from '../claude-code/adapter.mjs';
 export const meta = {
   id: 'claude-plugin',
   title: 'Claude Code plugin',
-  pluginName: 'engineering-standards',
-  outDir: 'plugins/engineering-standards',
+  pluginName: 'moonlight',
+  outDir: 'plugins/moonlight',
   docs: [
     'https://code.claude.com/docs/en/plugins/components',
     'https://code.claude.com/docs/en/plugins/create-marketplace',
@@ -96,13 +96,13 @@ export function generate(ctx) {
   });
   files.push({
     path: 'README.md',
-    content: `# engineering-standards (Claude Code plugin)
+    content: `# moonlight (Claude Code plugin)
 
 Generated from the canonical sources in the repository root — **do not edit by hand**; run \`npm run build:plugin\`.
 
 Commands are namespaced by the plugin: \`/${meta.pluginName}:review\`, \`/${meta.pluginName}:implement\`, \`/${meta.pluginName}:production-check\`, … See [INDEX.md](INDEX.md) for all ${commands.length} commands and ${skills.length + 1} skills.
 
-Install: \`/plugin marketplace add suresh123-git/engineering-standards-plugin\` then \`/plugin install engineering-standards@engineering-standards\`.
+Install: \`/plugin marketplace add suresh123-git/engineering-standards-plugin\` then \`/plugin install moonlight@moonlight\`.
 `,
   });
   return files;
@@ -112,7 +112,7 @@ export function marketplace(version) {
   return (
     JSON.stringify(
       {
-        name: 'engineering-standards',
+        name: 'moonlight',
         description: 'Engineering standards toolkit: commands, skills and standards for everyday development.',
         owner: { name: 'engineering-standards contributors' },
         plugins: [

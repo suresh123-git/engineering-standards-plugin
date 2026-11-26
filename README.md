@@ -22,10 +22,10 @@ This repo is also a Claude Code plugin marketplace:
 
 ```text
 /plugin marketplace add suresh123-git/engineering-standards-plugin
-/plugin install engineering-standards@engineering-standards
+/plugin install moonlight@moonlight
 ```
 
-Commands are namespaced by the plugin, e.g. `/engineering-standards:review`, `/engineering-standards:production-check`. The always-on rules ship as the `engineering-rules` skill (Claude Code does not load a `CLAUDE.md` from plugins). The plugin is generated into `plugins/engineering-standards/` by `npm run build:plugin` and checked for freshness by `npm run validate`. The same plugin format can be used in claude.ai/Cowork, which load a different component set — see Anthropic's [component support table](https://claude.com/docs/plugins/platform-support#compare-component-support-by-app). Cost: roughly 3.5k tokens of skill descriptions are added to every session.
+Commands are namespaced by the plugin, e.g. `/moonlight:review`, `/moonlight:production-check`. The always-on rules ship as the `engineering-rules` skill (Claude Code does not load a `CLAUDE.md` from plugins). The plugin is generated into `plugins/moonlight/` by `npm run build:plugin` and checked for freshness by `npm run validate`. The same plugin format can be used in claude.ai/Cowork, which load a different component set — see Anthropic's [component support table](https://claude.com/docs/plugins/platform-support#compare-component-support-by-app). Cost: roughly 3.5k tokens of skill descriptions are added to every session.
 
 ## Quick start
 
@@ -247,7 +247,7 @@ commands/ skills/ rules/ standards/ checklists/ templates/     ← canonical, ed
 npm run validate   # structure, metadata, links, adapters, generated output limits
 npm test           # unit tests for the parser, link rewriter and block merge
 npm run build      # generate dist/
-npm run build:plugin  # regenerate plugins/engineering-standards/ and the marketplace file
+npm run build:plugin  # regenerate plugins/moonlight/ and the marketplace file
 ```
 
 ## Contributing

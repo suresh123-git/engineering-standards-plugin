@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generates plugins/engineering-standards/ and .claude-plugin/marketplace.json (committed outputs).
+// Generates plugins/moonlight/ and .claude-plugin/marketplace.json (committed outputs).
 //   node scripts/build-plugin.mjs           write
 //   node scripts/build-plugin.mjs --check   exit 1 if committed output is out of date
 import fs from 'node:fs';
