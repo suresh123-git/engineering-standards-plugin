@@ -1,0 +1,13 @@
+# Changelog
+
+All notable changes are documented here. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning: [SemVer](https://semver.org/).
+
+## [1.0.0] - 2026-11-26
+
+### Added
+- 42 slash commands across development, architecture, quality, security, testing, API, database, DevOps, Git and documentation.
+- 9 core skills and 23 stack-aware skills.
+- 9 rules (always-on, glob-scoped, model-selected).
+- 41 shared standards, 5 checklists and 7 authoring templates.
+- Adapters for Claude Code, Cursor, GitHub Copilot, Windsurf and OpenAI Codex.
+- Build, install (with managed-block merge, dry-run, uninstall), verify and validate scripts; unit tests; CI workflow.

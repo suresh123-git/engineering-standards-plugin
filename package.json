@@ -1,0 +1,19 @@
+{
+  "name": "engineering-standards",
+  "version": "1.0.0",
+  "description": "IDE-independent engineering toolkit: slash commands, skills, rules and standards for Claude Code, Cursor, GitHub Copilot, Windsurf and Codex.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "bin": { "engineering-standards": "scripts/install.mjs" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "docs": "node scripts/sync-docs.mjs",
+    "install-toolkit": "node scripts/install.mjs",
+    "validate": "node scripts/validate.mjs",
+    "verify": "node scripts/verify-install.mjs",
+    "test": "node --test"
+  },
+  "files": ["adapters", "checklists", "commands", "rules", "scripts", "skills", "standards", "templates", "docs"],
+  "keywords": ["ai", "slash-commands", "claude-code", "cursor", "copilot", "windsurf", "codex", "engineering-standards"]
+}
