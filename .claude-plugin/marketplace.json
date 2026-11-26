@@ -1,0 +1,15 @@
+{
+  "name": "engineering-standards",
+  "description": "Engineering standards toolkit: commands, skills and standards for everyday development.",
+  "owner": {
+    "name": "engineering-standards contributors"
+  },
+  "plugins": [
+    {
+      "name": "engineering-standards",
+      "source": "./plugins/engineering-standards",
+      "description": "Stack-aware slash commands, skills and standards for review, design, implementation, security, testing and production readiness.",
+      "version": "1.0.0"
+    }
+  ]
+}

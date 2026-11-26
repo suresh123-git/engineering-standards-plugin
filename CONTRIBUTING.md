@@ -18,7 +18,7 @@ npm run validate && npm test
 4. Make it specific to its job — stack-aware steps, concrete outputs, no boilerplate copied from another command.
 5. `mode: read-only` commands must say they do not modify files. Anything destructive must require approval.
 6. Keep it under ~9,000 characters (Windsurf workflows are limited to 12,000 after the shared footer is added).
-7. Run `npm run docs` to refresh the README tables, then `npm run validate`.
+7. Run `npm run build:plugin` (the plugin output is committed and CI fails if stale), then `npm run docs` to refresh the README tables, then `npm run validate`.
 
 ## Adding a skill, rule or standard
 

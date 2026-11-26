@@ -9,6 +9,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "docs": "node scripts/sync-docs.mjs",
+    "build:plugin": "node scripts/build-plugin.mjs",
     "install-toolkit": "node scripts/install.mjs",
     "validate": "node scripts/validate.mjs",
     "verify": "node scripts/verify-install.mjs",

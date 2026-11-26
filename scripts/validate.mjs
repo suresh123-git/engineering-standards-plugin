@@ -8,6 +8,7 @@ import {
   read, rel, walk, parseFrontmatter, extractLinks, listH2, loadCommands, loadRules, loadSkills,
 } from './lib.mjs';
 import { buildAll, readVersion } from './build.mjs';
+import { checkPlugin } from './build-plugin.mjs';
 
 const CORE_SKILL_SECTIONS = ['When to apply', 'How to apply', 'Checklist', 'Common mistakes'];
 const STACK_SKILL_SECTIONS = ['Detect', 'Review focus'];
@@ -112,7 +113,7 @@ export async function validate() {
 
   // ---- internal links (templates are placeholders → skipped; anchors ignored)
   let linkCount = 0;
-  const mdFiles = walk(ROOT, (p) => p.endsWith('.md')).filter((p) => !rel(p).startsWith('templates/'));
+  const mdFiles = walk(ROOT, (p) => p.endsWith('.md')).filter((p) => !rel(p).startsWith('templates/') && !rel(p).startsWith('plugins/'));
   for (const f of mdFiles) {
     for (const link of extractLinks(read(f))) {
       const file = link.split('#')[0];
@@ -145,6 +146,32 @@ export async function validate() {
   if (fs.existsSync(path.join(ROOT, 'CHANGELOG.md')) && !read(path.join(ROOT, 'CHANGELOG.md')).includes(`## [${version}]`)) {
     err(`CHANGELOG.md has no "## [${version}]" entry`);
   }
+
+  // ---- Claude Code plugin + marketplace (committed output)
+  const pluginDir = path.join(ROOT, 'plugins/engineering-standards');
+  for (const p of checkPlugin()) err(`plugin: ${p} (run "npm run build:plugin")`);
+  try {
+    const mk = JSON.parse(read(path.join(ROOT, '.claude-plugin/marketplace.json')));
+    const pj = JSON.parse(read(path.join(pluginDir, '.claude-plugin/plugin.json')));
+    if (!mk.name || !mk.owner?.name || !Array.isArray(mk.plugins)) err('marketplace.json: needs name, owner.name, plugins[]');
+    for (const e of mk.plugins || []) {
+      if (e.name !== pj.name) err(`marketplace.json: entry "${e.name}" must equal plugin.json name "${pj.name}"`);
+      if (!/^\.\/[^.]/.test(e.source || '') || e.source.includes('..')) err(`marketplace.json: bad relative source "${e.source}"`);
+      else if (!fs.existsSync(path.join(ROOT, e.source, '.claude-plugin/plugin.json'))) err(`marketplace.json: source "${e.source}" has no plugin.json`);
+    }
+    if (pj.version !== readVersion()) err('plugin.json version differs from package.json');
+  } catch (e) { err(`marketplace/plugin manifest: ${e.message}`); }
+  let pluginLinks = 0;
+  for (const f of walk(pluginDir, (p) => p.endsWith('.md') && /\/(commands|skills)\//.test(p))) {
+    for (const link of extractLinks(read(f))) {
+      if (!link.startsWith('${CLAUDE_PLUGIN_ROOT}/')) continue;
+      pluginLinks++;
+      const target = path.join(pluginDir, link.slice('${CLAUDE_PLUGIN_ROOT}/'.length).split('#')[0]);
+      if (!fs.existsSync(target)) err(`${rel(f)}: broken plugin link "${link}"`);
+    }
+  }
+  stats.pluginLinks = pluginLinks;
+  stats.pluginCommands = fs.readdirSync(path.join(pluginDir, 'commands')).length;
 
   // ---- generated output
   try {
